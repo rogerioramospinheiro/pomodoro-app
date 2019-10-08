@@ -1,0 +1,29 @@
+{
+  "name": "pomodoro-app",
+  "version": "1.0.0",
+  "description": "App that implements the pomodoro technique",
+  "main": "app.js",
+  "author": "JNP Soft",
+  "license": "MIT",
+  "dependencies": {
+    "moment": "^2.24.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4"
+  },
+  "scripts": {
+    "dev-server": "webpack-dev-server"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
+  }
+}

@@ -1,0 +1,14 @@
+# install yarn
+npm install yarn -g
+
+# init
+yarn install
+
+# install react
+yarn add react react-dom
+
+# install webpack
+yarn add webpack webpack-cli webpack-dev-server --dev
+
+# install babel
+yarn add babel-loader @babel/core @babel/preset-env @babel/preset-react @babel/plugin-proposal-class-properties @babel/plugin-proposal-object-rest-spread --dev
