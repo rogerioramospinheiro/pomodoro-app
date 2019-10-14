@@ -9,10 +9,9 @@ body {
 .timer-display {
     width: 970px;
     margin: auto;
-    border: 1px solid black;
+    border: 1px solid lightgrey;
     text-align: center;
     padding: 1rem;
-    box-sizing: border-box;
 }
 
 .timer-display__text {
@@ -27,7 +26,6 @@ body {
 
 .task-form__45area {
     display: inline-block;
-    box-sizing: border-box;
     width: 47.5%;
     padding: 0 0.5rem 0 0;
 }
@@ -35,20 +33,18 @@ body {
 .task-form__10area {
     display: inline-block;
     width: 5%;
-    box-sizing: border-box;
 }
 
 .task-form__input {
     width: 100%;
-    padding: 0.5rem;
-    box-sizing: border-box;
+    height: 2.25rem;
 }
 
 .task-form__button {
     width: 100%;
-    padding: 0.5rem;
+    height: 2.25rem;
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid lightgray;
 }
 
 .finished-tasks {
@@ -59,14 +55,12 @@ body {
 .finished-tasks__headers {
     width: 100%;
     font-size: 1.25rem;
-    box-sizing: border-box;
 }
 
 .finished-tasks__column {
     width: 25%;
     padding: 0.25rem;
     display: inline-block;
-    box-sizing: border-box;
     background-color: whitesmoke;
 }
 
