@@ -2,21 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import FinishedTaskItem from './FinishedTaskItem';
 
-const tableStyle = {
-    width: '800px'
-};
-
-const wrapperStyle = {
-    width: '100%',
-    boxSizing: 'border-box'
-};
-
-const colStyle = {
-    width: '25%',
-    display: 'inline-block',
-    boxSizing: 'border-box'
-};
-
 const forEachTask = (task, index) => (
     <FinishedTaskItem 
     key={index} 
@@ -25,15 +10,15 @@ const forEachTask = (task, index) => (
 );
 
 const FinishedTasks = (props) => (
-    <div style={tableStyle} >
-        <div styles={wrapperStyle} >
-            <div style={colStyle}>Title</div>
-            <div style={colStyle}>Description</div>
-            <div style={colStyle}>Start</div>
-            <div style={colStyle}>End</div>
+    <div className="finished-tasks" >
+        <div className="finished-tasks__headers">
+            <div className="finished-tasks__column">Title</div>
+            <div className="finished-tasks__column">Description</div>
+            <div className="finished-tasks__column">Start</div>
+            <div className="finished-tasks__column">End</div>
         </div>
         {
-            props.tasks.length === 0 ? (<div style={wrapperStyle}>No finished tasks</div>) : props.tasks.map( forEachTask )
+            props.tasks.length === 0 ? (<div className="finished-tasks__headers">No finished tasks</div>) : props.tasks.map( forEachTask )
         }
     </div>
 );

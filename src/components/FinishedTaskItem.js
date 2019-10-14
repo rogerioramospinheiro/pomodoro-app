@@ -1,23 +1,12 @@
 import React from 'react';
 import moment from 'moment';
 
-const wrapperStyle = {
-    width: '100%',
-    boxSizing: 'border-box'
-};
-
-const colStyle = {
-    width: '25%',
-    display: 'inline-block',
-    boxSizing: 'border-box'
-};
-
 const FinishedTaskItem = ( {title, description, start_date, end_date} ) => (
-    <div style={wrapperStyle}>
-        <div style={colStyle}>{ title }</div>
-        <div style={colStyle}>{ description }</div>
-        <div style={colStyle}>{ moment(start_date).format('hh:mm:ss') }</div>
-        <div style={colStyle}>{ moment(end_date).format('hh:mm:ss') }</div>
+    <div className="finished-tasks__headers">
+        <div className="finished-tasks__column finished-tasks__content">{ title }</div>
+        <div className="finished-tasks__column finished-tasks__content">{ description }</div>
+        <div className="finished-tasks__column finished-tasks__content">{ moment(start_date).format('hh:mm:ss') }</div>
+        <div className="finished-tasks__column finished-tasks__content">{ moment(end_date).format('hh:mm:ss') }</div>
     </div>
 );
 

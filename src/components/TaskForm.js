@@ -39,22 +39,32 @@ class TaskForm extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className="task-form">
                 <form onSubmit={this.onSubmitHandle}>
-                    <input type="text"
-                    placeholder="Task Title"
-                    autoFocus
-                    value={this.state.task_title}
-                    onChange={this.onTitleChangeHandle}
-                    disabled={this.isNotIdle()}
-                    />
-                    <input type="text"
-                    placeholder="Task Description"
-                    value={this.state.task_description}
-                    onChange={this.onDescriptionChangeHandle}
-                    disabled={this.isNotIdle()}
-                    />
-                    <button>{ this.toggleButtonName() }</button>
+                    <div className="task-form__45area">
+                        <input 
+                        type="text"
+                        className="task-form__input"
+                        placeholder="Task Title"
+                        autoFocus
+                        value={this.state.task_title}
+                        onChange={this.onTitleChangeHandle}
+                        disabled={this.isNotIdle()}
+                        />
+                    </div>
+                    <div className="task-form__45area">
+                        <input 
+                        type="text"
+                        className="task-form__input"
+                        placeholder="Task Description"
+                        value={this.state.task_description}
+                        onChange={this.onDescriptionChangeHandle}
+                        disabled={this.isNotIdle()}
+                        />
+                    </div>
+                    <div className="task-form__10area">
+                        <button className="task-form__button">{ this.toggleButtonName() }</button>
+                    </div>
                 </form>
             </div>
         );

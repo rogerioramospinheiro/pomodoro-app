@@ -82,8 +82,8 @@ class TimerDisplay extends React.Component {
     }
     render() {
         return (
-            <div>
-                <div style={{color: this.props.display_color}}>{ this.displayCounter() }</div>
+            <div className="timer-display">
+                <div className="timer-display__text" style={{color: this.props.display_color}}>{ this.displayCounter() }</div>
             </div>
         );
     }

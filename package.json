@@ -6,11 +6,13 @@
   "author": "JNP Soft",
   "license": "MIT",
   "dependencies": {
+    "css-loader": "^3.2.0",
     "moment": "^2.24.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.1.1",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "style-loader": "^1.0.0"
   },
   "scripts": {
     "dev-server": "webpack-dev-server"
