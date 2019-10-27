@@ -10,8 +10,14 @@ yarn add react react-dom
 # install webpack
 yarn add webpack webpack-cli webpack-dev-server --dev
 
+# install webpack dev-server
+yarn add webpack-dev-server --dev
+
 # install babel
-yarn add babel-loader @babel/core @babel/preset-env @babel/preset-react @babel/plugin-proposal-class-properties @babel/plugin-proposal-object-rest-spread --dev
+yarn add babel-loader @babel/core @babel/preset-env @babel/preset-react @babel/plugin-proposal-class-properties @babel/plugin-proposal-object-rest-spread
 
 # install css-loader
 yarn add css-loader style-loader
+
+# install test support
+yarn add jest react-test-renderer enzyme enzyme-adapter-react-16 raf enzyme-to-json --dev
