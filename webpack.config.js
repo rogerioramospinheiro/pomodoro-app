@@ -1,11 +1,19 @@
 const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
     entry: './src/app.js',
     output: {
-        path: path.join(__dirname, 'public'),
+        path: path.join(__dirname, 'public', 'dist'),
         filename: 'bundle.js'
     },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "style.css"
+        })
+    ],
     module: {
         rules: [{
             loader: 'babel-loader',
@@ -14,11 +22,20 @@ module.exports = {
         },
         {
             test: /\.css$/,
-            use: ['style-loader','css-loader']
+            use: [
+                {
+                    loader: MiniCssExtractPlugin.loader,
+                    options: {
+                        hmr: isDev
+                    }
+                },
+                'css-loader'
+            ]
         }]
     },
-    devtool: 'cheap-module-eval-source-map',
+    devtool: isDev ? 'cheap-module-eval-source-map' : 'source-map',
     devServer: {
-        contentBase: path.join(__dirname, 'public')
+        contentBase: path.join(__dirname, 'public'),
+        publicPath: '/dist/'
     }
 };
