@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render EditFinishedTask 1`] = `
+<div>
+  <div
+    className="timer-display"
+  >
+    <div
+      className="timer-display__text"
+    >
+      <Link
+        className="finished-tasks__link"
+        to="/"
+      >
+        Edit
+      </Link>
+    </div>
+  </div>
+  <div
+    className="task-form"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <div
+        className="task-form__spacebox"
+      >
+        <input
+          className="task-form__input"
+          onChange={[Function]}
+          placeholder="Title"
+          type="text"
+          value="TASK-0001"
+        />
+      </div>
+      <div
+        className="task-form__spacebox"
+      >
+        <textarea
+          className="task-form__textarea"
+          onChange={[Function]}
+          placeholder="Description"
+          value="Job to be finished soon"
+        />
+      </div>
+      <button
+        className="task-form__save"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+`;

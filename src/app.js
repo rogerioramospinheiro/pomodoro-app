@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import PomodoroApp from './components/PomodoroApp';
+import AppRouter from './router/AppRouter';
 import configureStore from './store/configStore';
 import './styles/styles.css';
 
@@ -9,7 +9,7 @@ const store = configureStore();
 
 const jsx = (
     <Provider store={store}>
-        <PomodoroApp />
+        <AppRouter />
     </Provider>
 );
 

@@ -3,7 +3,7 @@ import TaskForm from './TaskForm';
 import TimerDisplay from './TimerDisplay';
 import FinishedTasks from './FinishedTasks';
 
-const PomodoroApp = () => (
+const TaskDashboard = () => (
     <div>
         <TimerDisplay />
         <TaskForm />
@@ -11,4 +11,4 @@ const PomodoroApp = () => (
     </div>
 );
 
-export default PomodoroApp;
+export default TaskDashboard;

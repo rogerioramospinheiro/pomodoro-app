@@ -1,8 +1,18 @@
+import uuidv1 from 'uuid/v1';
+
 const tasksReducerDefaultState = {
     state_name: 'IDLE',
     current_task: {
     },
-    finished_tasks: []
+    finished_tasks: [
+        {
+            id: 'c638040c-3917-11ea-a137-2e728ce88125',
+            title: 'TASK-0001',
+            description: 'Job to be finished soon',
+            start_date: 10000,
+            end_date: 30000
+        }
+    ]
 };
 
 const transitionStartToCounting = (state, action) => {
@@ -42,10 +52,13 @@ const transitionFinishToIdle = (state, action) => {
                 description: state.current_task.description,
                 start_date: state.current_task.start_date,
             },
-            finished_tasks: [...state.finished_tasks]
+            finished_tasks: [
+                ...state.finished_tasks
+            ]
         }
     } else if (state.state_name === 'RESTING') {
         const finished_task = {
+            id: uuidv1(),
             title: state.current_task.title,
             description: state.current_task.description,
             start_date: state.current_task.start_date,
@@ -54,11 +67,31 @@ const transitionFinishToIdle = (state, action) => {
         return {
             state_name: 'IDLE',
             current_task: tasksReducerDefaultState.current_task,
-            finished_tasks: [finished_task,...state.finished_tasks]
+            finished_tasks: [
+                finished_task,
+                ...state.finished_tasks
+            ]
         }
     } else {
         return state;
     }
+}
+
+const completeEditFinishedTask = (state, action) => {
+    const finished_tasks = state.finished_tasks.map( (task) => {
+        if (task.id === action.id) {
+            return {
+                ...task,
+                ...action.updates
+            };
+        } else {
+            return task;
+        }
+    });
+    return {
+        ...state,
+        finished_tasks
+    };
 }
 
 export default (state = tasksReducerDefaultState, action) => {
@@ -69,6 +102,8 @@ export default (state = tasksReducerDefaultState, action) => {
             return transitionCancelToIdle(state);
         case 'FINISH_TASK':
             return transitionFinishToIdle(state, action);
+        case 'EDIT_FINISHED_TASK':
+            return completeEditFinishedTask(state, action);
         default:
             return state;
     }

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render TaskDashboard 1`] = `
+<div>
+  <Connect(TimerDisplay) />
+  <Connect(TaskForm) />
+  <Connect(FinishedTasks) />
+</div>
+`;

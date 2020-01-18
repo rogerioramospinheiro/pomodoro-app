@@ -1,4 +1,10 @@
-import {startTask, cancelTask, finishTask} from '../../actions/tasks';
+import uuidv1 from 'uuid/v1';
+import {
+    startTask, 
+    cancelTask, 
+    finishTask,
+    editFinishedTask
+} from '../../actions/tasks';
 
 test('Should run start task action', () => {
     const task = {
@@ -54,5 +60,24 @@ test('Should run finish task with default values', () => {
         task: {
             end_date: 0
         }  
+    })
+});
+
+test('Should edit finished task', () => {
+    // Given
+    const uuid = uuidv1();
+    const updates = {
+        title: 'new title',
+        description: 'new description'
+    };
+
+    // When
+    const action = editFinishedTask(uuid, updates);
+
+    // Then
+    expect(action).toEqual({
+        type: 'EDIT_FINISHED_TASK',
+        id: uuid,
+        updates
     })
 });

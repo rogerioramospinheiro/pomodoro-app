@@ -17,3 +17,9 @@ export const finishTask = ({end_date = 0} = {}) => ({
         end_date
     }
 });
+
+export const editFinishedTask = (id, updates) => ({
+    type: 'EDIT_FINISHED_TASK',
+    id,
+    updates
+})
