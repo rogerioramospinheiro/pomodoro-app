@@ -4,15 +4,7 @@ const tasksReducerDefaultState = {
     state_name: 'IDLE',
     current_task: {
     },
-    finished_tasks: [
-        {
-            id: 'c638040c-3917-11ea-a137-2e728ce88125',
-            title: 'TASK-0001',
-            description: 'Job to be finished soon',
-            start_date: 10000,
-            end_date: 30000
-        }
-    ]
+    finished_tasks: []
 };
 
 const transitionStartToCounting = (state, action) => {
