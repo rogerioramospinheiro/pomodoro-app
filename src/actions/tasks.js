@@ -23,3 +23,10 @@ export const editFinishedTask = (id, updates) => ({
     id,
     updates
 })
+
+export const terminateTask = ({end_date = 0} = {}) => ({
+    type: 'TERMINATE_TASK',
+    task: {
+        end_date
+    }
+});

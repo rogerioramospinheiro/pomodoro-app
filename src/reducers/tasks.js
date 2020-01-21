@@ -37,37 +37,45 @@ const transitionCancelToIdle = (state) => {
 
 const transitionFinishToIdle = (state, action) => {
     if (state.state_name === 'COUNTING') {
-        return {
-            state_name: 'RESTING',
-            current_task: {
-                title: state.current_task.title,
-                description: state.current_task.description,
-                start_date: state.current_task.start_date,
-            },
-            finished_tasks: [
-                ...state.finished_tasks
-            ]
-        }
+        return putTaskToRest(state);
     } else if (state.state_name === 'RESTING') {
-        const finished_task = {
-            id: uuidv1(),
-            title: state.current_task.title,
-            description: state.current_task.description,
-            start_date: state.current_task.start_date,
-            end_date: action.task.end_date
-        };
-        return {
-            state_name: 'IDLE',
-            current_task: tasksReducerDefaultState.current_task,
-            finished_tasks: [
-                finished_task,
-                ...state.finished_tasks
-            ]
-        }
+        return terminateTask(state, action);
     } else {
         return state;
     }
-}
+};
+
+const putTaskToRest = (state) => {
+    return {
+        state_name: 'RESTING',
+        current_task: {
+            title: state.current_task.title,
+            description: state.current_task.description,
+            start_date: state.current_task.start_date,
+        },
+        finished_tasks: [
+            ...state.finished_tasks
+        ]
+    }
+};
+
+const terminateTask = (state, action) => {
+    const finished_task = {
+        id: uuidv1(),
+        title: state.current_task.title,
+        description: state.current_task.description,
+        start_date: state.current_task.start_date,
+        end_date: action.task.end_date
+    };
+    return {
+        state_name: 'IDLE',
+        current_task: tasksReducerDefaultState.current_task,
+        finished_tasks: [
+            finished_task,
+            ...state.finished_tasks
+        ]
+    }
+};
 
 const completeEditFinishedTask = (state, action) => {
     const finished_tasks = state.finished_tasks.map( (task) => {
@@ -96,6 +104,8 @@ export default (state = tasksReducerDefaultState, action) => {
             return transitionFinishToIdle(state, action);
         case 'EDIT_FINISHED_TASK':
             return completeEditFinishedTask(state, action);
+        case 'TERMINATE_TASK':
+            return terminateTask(state, action);
         default:
             return state;
     }

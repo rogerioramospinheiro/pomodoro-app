@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render TaskForm in counting state 1`] = `
+<div
+  className="task-form"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="task-form__spacebox"
+    >
+      <input
+        autoFocus={true}
+        className="task-form__input"
+        disabled={true}
+        onChange={[Function]}
+        placeholder="Task Title"
+        type="text"
+        value="JOB-0005"
+      />
+    </div>
+    <div
+      className="task-form__spacebox"
+    >
+      <textarea
+        className="task-form__textarea"
+        disabled={true}
+        onChange={[Function]}
+        placeholder="Task Description"
+        type="text"
+        value="Counting..."
+      />
+    </div>
+    <div
+      className="task-form__button-group"
+    >
+      <button
+        className="task-form__button"
+      >
+        Cancel
+      </button>
+      <button
+        className="task-form__button"
+        onClick={[Function]}
+      >
+        Finish
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Should render TaskForm in idle state 1`] = `
+<div
+  className="task-form"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="task-form__spacebox"
+    >
+      <input
+        autoFocus={true}
+        className="task-form__input"
+        disabled={false}
+        onChange={[Function]}
+        placeholder="Task Title"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="task-form__spacebox"
+    >
+      <textarea
+        className="task-form__textarea"
+        disabled={false}
+        onChange={[Function]}
+        placeholder="Task Description"
+        type="text"
+        value=""
+      />
+    </div>
+    <button
+      className="task-form__save"
+    >
+      Start
+    </button>
+  </form>
+</div>
+`;
