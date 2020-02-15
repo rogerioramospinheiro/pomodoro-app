@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render FinishedTaskList 1`] = `
+Array [
+  <FinishedTaskItem
+    description="Job to be finished soon"
+    end_date={30000}
+    id="c638040c-3917-11ea-a137-2e728ce88125"
+    key="0"
+    start_date={10000}
+    title="TASK-0001"
+  />,
+  <FinishedTaskItem
+    description="Job to finish by the end of the day"
+    end_date={60000}
+    id="cf20da8a-3917-11ea-a137-2e728ce88125"
+    key="1"
+    start_date={40000}
+    title="TASK-0002"
+  />,
+  <FinishedTaskItem
+    description="Job to be finished tomorrow"
+    end_date={100000}
+    id="d79e2000-3917-11ea-a137-2e728ce88125"
+    key="2"
+    start_date={70000}
+    title="TASK-0003"
+  />,
+]
+`;
+
+exports[`Should render FinishedTasks 1`] = `
+<div
+  className="finished-tasks"
+>
+  <FinishedTasksList />
+</div>
+`;
+
+exports[`Should render empty FinishedTaskList 1`] = `
+<div
+  className="finished-tasks__item"
+>
+  No finished tasks
+</div>
+`;

@@ -6,27 +6,24 @@ exports[`Should render FinishedTaskItem 1`] = `
   to="/edit/c638040c-3917-11ea-a137-2e728ce88125"
 >
   <div
-    className="finished-tasks__headers"
+    className="finished-tasks__item"
   >
-    <div
-      className="finished-tasks__column finished-tasks__content"
-    >
+    <div>
       TASK-0001
     </div>
-    <div
-      className="finished-tasks__column finished-tasks__content"
-    >
+    <div>
       Job to be finished soon
     </div>
-    <div
-      className="finished-tasks__column finished-tasks__content"
-    >
-      07:00:10
-    </div>
-    <div
-      className="finished-tasks__column finished-tasks__content"
-    >
-      07:00:30
+    <div>
+      <span>
+        07:00:10 PM
+      </span>
+      <span>
+        -
+      </span>
+      <span>
+        07:00:30 PM
+      </span>
     </div>
   </div>
 </Link>

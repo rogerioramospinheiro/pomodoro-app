@@ -52,14 +52,14 @@ export class TaskForm extends React.Component {
     };
     renderStartButton = () => {
         return (
-            <button className="task-form__save">{ this.toggleButtonName() }</button>
+            <button className="task-form__button button-wide">{ this.toggleButtonName() }</button>
         );
     };
     renderCancelFinishButton = () => {
         return (
             <div className="task-form__button-group">
-                <button className="task-form__button">{ this.toggleButtonName() }</button>
-                <button className="task-form__button" onClick={this.onFinishHandle}>Finish</button>
+                <button className="task-form__button button-short">{ this.toggleButtonName() }</button>
+                <button className="task-form__button button-short" onClick={this.onFinishHandle}>Finish</button>
             </div>
         );
     };

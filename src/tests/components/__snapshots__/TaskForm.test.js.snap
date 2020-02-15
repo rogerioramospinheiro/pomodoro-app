@@ -36,12 +36,12 @@ exports[`Should render TaskForm in counting state 1`] = `
       className="task-form__button-group"
     >
       <button
-        className="task-form__button"
+        className="task-form__button button-short"
       >
         Cancel
       </button>
       <button
-        className="task-form__button"
+        className="task-form__button button-short"
         onClick={[Function]}
       >
         Finish
@@ -84,7 +84,7 @@ exports[`Should render TaskForm in idle state 1`] = `
       />
     </div>
     <button
-      className="task-form__save"
+      className="task-form__button button-wide"
     >
       Start
     </button>

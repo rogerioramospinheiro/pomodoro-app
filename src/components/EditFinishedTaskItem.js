@@ -53,7 +53,7 @@ export class EditFinishedTaskItem extends React.Component {
                             value={this.state.description}
                             onChange={this.onDescriptionChange}/>
                         </div>
-                        <button className="task-form__save">Save</button>
+                        <button className="task-form__button button-wide">Save</button>
                     </form>
                 </div>
             </div>

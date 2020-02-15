@@ -44,7 +44,7 @@ exports[`Should render EditFinishedTask 1`] = `
         />
       </div>
       <button
-        className="task-form__save"
+        className="task-form__button button-wide"
       >
         Save
       </button>
