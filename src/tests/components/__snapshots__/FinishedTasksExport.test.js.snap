@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render FinishedTasksExport 1`] = `
+<CSVLink
+  asyncOnClick={false}
+  className="finished-tasks__link"
+  data={
+    Array [
+      Array [
+        "ID",
+        "TITLE",
+        "DESCRIPTION",
+        "START TIME",
+        "END TIME",
+        "DURATION",
+      ],
+      Array [
+        "c638040c-3917-11ea-a137-2e728ce88125",
+        "TASK-0001",
+        "Job to be finished soon",
+        "07:00:10 PM",
+        "07:00:30 PM",
+        "0m",
+      ],
+      Array [
+        "cf20da8a-3917-11ea-a137-2e728ce88125",
+        "TASK-0002",
+        "Job to finish by the end of the day",
+        "07:00:40 PM",
+        "07:01:00 PM",
+        "0m",
+      ],
+      Array [
+        "d79e2000-3917-11ea-a137-2e728ce88125",
+        "TASK-0003",
+        "Job to be finished tomorrow",
+        "07:01:10 PM",
+        "07:01:40 PM",
+        "0m",
+      ],
+    ]
+  }
+  enclosingCharacter="\\""
+  filename="pomodoro-app-export-19691231.csv"
+  separator=","
+  target="_blank"
+  uFEFF={true}
+>
+  <div
+    className="task-form__button finished-tasks__link-export button-wide"
+  >
+    Export
+  </div>
+</CSVLink>
+`;

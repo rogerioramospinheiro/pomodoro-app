@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FinishedTaskItem from './FinishedTaskItem';
+import FinishedTaskExport from './FinishedTasksExport';
 
 export const FinishedTasks = (props) => (
     <div className="finished-tasks" >
@@ -9,16 +10,22 @@ export const FinishedTasks = (props) => (
 );
 
 export const FinishedTasksList = (props) => {
-    if (props.tasks.length === 0) {
+    const {tasks} = props;
+    if (tasks.length === 0) {
         return (<div className="finished-tasks__item">No finished tasks</div>);
     } else {
-        return props.tasks.map( forEachTask )
+        return (
+            <>
+                <FinishedTaskListItems tasks={tasks} />
+                <FinishedTaskExport tasks={tasks} />
+            </>
+        );
     }
 }
 
-const forEachTask = (task, index) => (
-    <FinishedTaskItem key={index} {...task}/>
-);
+export const FinishedTaskListItems = ({tasks}) => {
+    return tasks.map( (task, index) => <FinishedTaskItem key={index} {...task}/>);
+};
 
 const mapStateToProps = (state) => {
     return {

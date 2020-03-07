@@ -15,14 +15,28 @@ exports[`Should render FinishedTaskItem 1`] = `
       Job to be finished soon
     </div>
     <div>
-      <span>
+      <span
+        className="finished-tasks__display-start-end"
+      >
         07:00:10 PM
       </span>
-      <span>
+      <span
+        className="finished-tasks__display-start-end"
+      >
+        -
+      </span>
+      <span
+        className="finished-tasks__display-start-end"
+      >
+        07:00:30 PM
+      </span>
+      <span
+        className="finished-tasks__display-start-end"
+      >
         -
       </span>
       <span>
-        07:00:30 PM
+        0m
       </span>
     </div>
   </div>

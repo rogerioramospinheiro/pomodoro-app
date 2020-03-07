@@ -46,7 +46,9 @@ body {
 }
 
 .task-form__button {
-    height: 2.25rem;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 2rem;
     background-color: whitesmoke;
     border: 1px solid grey;
     border-radius: 5px;
@@ -95,6 +97,14 @@ body {
     text-decoration: none;
 }
 
+.finished-tasks__link-export {
+    text-align: center;
+}
+
+.finished-tasks__display-start-end {
+    display: none;
+}
+
 @media(min-width: 970px) {
     .timer-display {
         width: 970px;
@@ -112,5 +122,9 @@ body {
     .finished-tasks {
         width: 970px;
         margin: 2rem auto;
+    }
+
+    .finished-tasks__display-start-end {
+        display: inline;
     }
 }
