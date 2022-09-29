@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render TimerDisplay 1`] = `
+<div
+  className="timer-display"
+>
+  <div
+    className="timer-display__text"
+    style={
+      Object {
+        "color": "black",
+      }
+    }
+  >
+    00:00
+  </div>
+</div>
+`;

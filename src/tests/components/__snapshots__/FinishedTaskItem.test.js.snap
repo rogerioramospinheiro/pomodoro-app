@@ -18,7 +18,7 @@ exports[`Should render FinishedTaskItem 1`] = `
       <span
         className="finished-tasks__display-start-end"
       >
-        07:00:10 PM
+        09:00:10 PM
       </span>
       <span
         className="finished-tasks__display-start-end"
@@ -28,7 +28,7 @@ exports[`Should render FinishedTaskItem 1`] = `
       <span
         className="finished-tasks__display-start-end"
       >
-        07:00:30 PM
+        09:00:30 PM
       </span>
       <span
         className="finished-tasks__display-start-end"

@@ -1,81 +1,56 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import moment from 'moment';
+import { calculateTimer } from '../helpers/timerdisplay_helper';
 import { finishTask } from '../actions/tasks';
 import { selectInitTime, selectDisplayColor } from '../selectors/settings';
 
-class TimerDisplay extends React.Component {
+export class TimerDisplay extends React.Component {
     state = {
         minutes: 0,
         seconds: 0,
+        endtime: 0
     };
     onIntervalHandle = (ctx) => {
 
-        const timer = ctx.currentCounter();
+        let minutes = ctx.state.minutes;
+        let seconds = ctx.state.seconds;
+        let end_time = ctx.state.endtime;
 
-        if (timer) {
+        if (ctx.props.init_time > 0) {
 
-            let minutes = timer.minutes;
-            let seconds = timer.seconds;
-            
-            if (minutes > 0 && seconds === 0) {
-                minutes = minutes - 1;
-                seconds = 59;
-            } else {
-                seconds = seconds - 1;
+            const timer = calculateTimer(end_time, ctx.props.init_time);
+            const updated_end_time = (timer.is_counting) ? timer.end_time : 0;
+
+            ctx.setCounter(timer.minutes, timer.seconds, updated_end_time);
+
+            if (timer.is_finished) {
+                ctx.finishCountdown(end_time);
             }
-    
-            if ( minutes === 0 && seconds === 0) {
-                ctx.finishCountdown();
+
+        } else {
+
+            if (minutes > 0 || seconds > 0) {
+                ctx.setCounter(0, 0, 0);
             }
-            
-            ctx.setCounter(minutes, seconds);
+
         }
     };
-    setCounter = (minutes, seconds) => {
-        this.setState( {minutes: minutes, seconds: seconds} );
+    setCounter = (minutes, seconds, endtime) => {
+        this.setState( {minutes: minutes, seconds: seconds, endtime: endtime} );
     };
     displayCounter = () => {
         const m = this.state.minutes < 10 ? `0${this.state.minutes}` : this.state.minutes;
         const s = this.state.seconds < 10 ? `0${this.state.seconds}` : this.state.seconds;
         return `${m}:${s}`;
     };
-    currentCounter = () => {
-
-        const minutes = this.state.minutes;
-        const seconds = this.state.seconds;
-
-        if (this.props.init_time > 0) {
-
-            if (minutes > 0 || seconds > 0) {
-                return {
-                    minutes: minutes,
-                    seconds: seconds
-                }
-            } else {
-                return {
-                    minutes: this.props.init_time,
-                    seconds: 0
-                }
-            }
-
-        } else {
-
-            if (minutes > 0 || seconds > 0) {
-                this.setCounter(0, 0);
-            }
-
-            return undefined;
-        }
-    };
-    finishCountdown = () => {
+    finishCountdown = (end_time) => {
         const now = {
-            end_date: moment().valueOf()
+            end_date: end_time
         }
         this.props.finishTask(now);
     };
     componentDidMount() {
-        this.intervalTimeout = setInterval(this.onIntervalHandle, 1000, this);
+        this.intervalTimeout = setInterval(this.onIntervalHandle, 500, this);
     }
     componentWillUnmount() {
         clearInterval(this.intervalTimeout);
