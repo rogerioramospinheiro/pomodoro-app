@@ -4,6 +4,31 @@ import { calculateTimer } from '../helpers/timerdisplay_helper';
 import { finishTask } from '../actions/tasks';
 import { selectInitTime, selectDisplayColor } from '../selectors/settings';
 
+export const updateTimer = (ctx, calculate) => {
+
+    let minutes = ctx.state.minutes;
+    let seconds = ctx.state.seconds;
+    let end_time = ctx.state.endtime;
+
+    if (ctx.props.init_time > 0) {
+
+        const timer = calculate(end_time, ctx.props.init_time);
+        const updated_end_time = (timer.is_counting) ? timer.end_time : 0;
+
+        ctx.setCounter(timer.minutes, timer.seconds, updated_end_time);
+
+        if (timer.is_finished) {
+            ctx.finishCountdown(end_time);
+        }
+
+    } else {
+
+        if (minutes > 0 || seconds > 0) {
+            ctx.setCounter(0, 0, 0);
+        }
+    }
+};
+
 export class TimerDisplay extends React.Component {
     state = {
         minutes: 0,
@@ -11,29 +36,7 @@ export class TimerDisplay extends React.Component {
         endtime: 0
     };
     onIntervalHandle = (ctx) => {
-
-        let minutes = ctx.state.minutes;
-        let seconds = ctx.state.seconds;
-        let end_time = ctx.state.endtime;
-
-        if (ctx.props.init_time > 0) {
-
-            const timer = calculateTimer(end_time, ctx.props.init_time);
-            const updated_end_time = (timer.is_counting) ? timer.end_time : 0;
-
-            ctx.setCounter(timer.minutes, timer.seconds, updated_end_time);
-
-            if (timer.is_finished) {
-                ctx.finishCountdown(end_time);
-            }
-
-        } else {
-
-            if (minutes > 0 || seconds > 0) {
-                ctx.setCounter(0, 0, 0);
-            }
-
-        }
+        updateTimer(ctx, calculateTimer);
     };
     setCounter = (minutes, seconds, endtime) => {
         this.setState( {minutes: minutes, seconds: seconds, endtime: endtime} );
