@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { TimerDisplay, updateTimer } from '../../components/TimerDisplay';
+import { TimerDisplay, updateTimer, printCounter } from '../../components/TimerDisplay';
 
 test('Should render TimerDisplay', () => {
     // Given
@@ -97,4 +97,32 @@ test('Should finish countdown', () => {
 
     expect(finishCountdown.mock.calls.length).toBe(1);
     expect(finishCountdown.mock.calls[0][0]).toBe(60 * 1000);
+});
+
+test('Should print counter init', () => {
+    // Given
+    const ctx = {
+        state: {
+            minutes: 0,
+            seconds: 0
+        }
+    };
+    // When
+    const res = printCounter(ctx);
+    // Then
+    expect(res).toBe('00:00');
+});
+
+test('Should print counter during', () => {
+    // Given
+    const ctx = {
+        state: {
+            minutes: 1,
+            seconds: 5
+        }
+    };
+    // When
+    const res = printCounter(ctx);
+    // Then
+    expect(res).toBe('01:05');
 });

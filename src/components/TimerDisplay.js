@@ -29,6 +29,12 @@ export const updateTimer = (ctx, calculate) => {
     }
 };
 
+export const printCounter = (ctx) => {
+    const m = ctx.state.minutes < 10 ? `0${ctx.state.minutes}` : ctx.state.minutes;
+    const s = ctx.state.seconds < 10 ? `0${ctx.state.seconds}` : ctx.state.seconds;
+    return `${m}:${s}`;
+};
+
 export class TimerDisplay extends React.Component {
     state = {
         minutes: 0,
@@ -42,9 +48,7 @@ export class TimerDisplay extends React.Component {
         this.setState( {minutes: minutes, seconds: seconds, endtime: endtime} );
     };
     displayCounter = () => {
-        const m = this.state.minutes < 10 ? `0${this.state.minutes}` : this.state.minutes;
-        const s = this.state.seconds < 10 ? `0${this.state.seconds}` : this.state.seconds;
-        return `${m}:${s}`;
+        return printCounter(this);
     };
     finishCountdown = (end_time) => {
         const now = {
@@ -53,7 +57,7 @@ export class TimerDisplay extends React.Component {
         this.props.finishTask(now);
     };
     componentDidMount() {
-        this.intervalTimeout = setInterval(this.onIntervalHandle, 500, this);
+        this.intervalTimeout = setInterval(this.onIntervalHandle, 250, this);
     }
     componentWillUnmount() {
         clearInterval(this.intervalTimeout);
