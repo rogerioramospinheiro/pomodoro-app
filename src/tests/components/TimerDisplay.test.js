@@ -13,6 +13,7 @@ test('Should render TimerDisplay', () => {
 test('Should update timer when user canceled timer', () => {
     // Given
     const setCounter = jest.fn();
+    const setTitle = jest.fn();
     const ctx = {
         state: {
             minutes: 0,
@@ -22,7 +23,8 @@ test('Should update timer when user canceled timer', () => {
         props: {
             init_time: 0
         },
-        setCounter
+        setCounter,
+        setTitle
     };
     const calculate = jest.fn();
     // When
@@ -32,11 +34,17 @@ test('Should update timer when user canceled timer', () => {
     expect(setCounter.mock.calls[0][0]).toBe(0);
     expect(setCounter.mock.calls[0][1]).toBe(0);
     expect(setCounter.mock.calls[0][2]).toBe(0);
+
+    expect(setTitle.mock.calls.length).toBe(1);
+    expect(setTitle.mock.calls[0][0]).toBe(0);
+    expect(setTitle.mock.calls[0][1]).toBe(0);
+    expect(setTitle.mock.calls[0][2]).toBe(0);
 });
 
 test('Should update timer end time when init timer', () => {
     // Given
     const setCounter = jest.fn();
+    const setTitle = jest.fn();
     const ctx = {
         state: {
             minutes: 0,
@@ -46,7 +54,8 @@ test('Should update timer end time when init timer', () => {
         props: {
             init_time: 1
         },
-        setCounter
+        setCounter,
+        setTitle
     };
     const calculate = jest.fn(() => ({
         minutes: 1,
@@ -62,11 +71,17 @@ test('Should update timer end time when init timer', () => {
     expect(setCounter.mock.calls[0][0]).toBe(1);
     expect(setCounter.mock.calls[0][1]).toBe(0);
     expect(setCounter.mock.calls[0][2]).toBe(60 * 1000);
+
+    expect(setTitle.mock.calls.length).toBe(1);
+    expect(setTitle.mock.calls[0][0]).toBe(1);
+    expect(setTitle.mock.calls[0][1]).toBe(0);
+    expect(setTitle.mock.calls[0][2]).toBe(60 * 1000);
 });
 
 test('Should finish countdown', () => {
     // Given
     const setCounter = jest.fn();
+    const setTitle = jest.fn();
     const finishCountdown = jest.fn();
     const ctx = {
         state: {
@@ -78,6 +93,7 @@ test('Should finish countdown', () => {
             init_time: 1
         },
         setCounter,
+        setTitle,
         finishCountdown
     };
     const calculate = jest.fn(() => ({
@@ -94,6 +110,11 @@ test('Should finish countdown', () => {
     expect(setCounter.mock.calls[0][0]).toBe(0);
     expect(setCounter.mock.calls[0][1]).toBe(0);
     expect(setCounter.mock.calls[0][2]).toBe(0);
+
+    expect(setTitle.mock.calls.length).toBe(1)
+    expect(setTitle.mock.calls[0][0]).toBe(0);
+    expect(setTitle.mock.calls[0][1]).toBe(0);
+    expect(setTitle.mock.calls[0][2]).toBe(0);
 
     expect(finishCountdown.mock.calls.length).toBe(1);
     expect(finishCountdown.mock.calls[0][0]).toBe(60 * 1000);
