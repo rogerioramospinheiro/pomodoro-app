@@ -19,3 +19,13 @@ export const selectDisplayColor = (tasks) => {
         return 'black';
     }
 };
+
+export const selectDisplayState = (tasks) => {
+    if (tasks.state_name === 'COUNTING') {
+        return 'WORK';
+    } else if (tasks.state_name === 'RESTING') {
+        return 'REST';
+    } else {
+        return '';
+    }
+}
